@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const compression = require("compression");
 
 // added the process.env.PORT
-const PORT = process.env.PORT || 3000;
+// const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 const app = express();
 
@@ -17,10 +18,15 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // added the process.env, unifiedtop and createindex for atlas
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useCreateIndex: true,
+//   useFindAndModify: false
+// });
+
+mongoose.connect("mongodb://localhost/budget", {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
   useFindAndModify: false
 });
 
